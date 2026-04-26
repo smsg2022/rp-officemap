@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RE/MAX Preferred - Office Directory</title>
+<meta name="description" content="RE/MAX Preferred Office Directory - Greater Madison Realty LLC. Find all 13 office locations, contact info, and directions.">
+<link rel="icon" href="New_RMX_Balloon.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<div class="edit-badge" id="editBadge">EDIT MODE ACTIVE</div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-title">
+    <h1>Office Directory</h1>
+    <p>Greater Madison Realty LLC &nbsp;-&nbsp; DBA: RE/MAX Preferred</p>
+  </div>
+  <div class="remax-logo" id="remaxLogo" role="button" tabindex="0" title="Double-click / double-tap for admin edit access" ondblclick="triggerEditMode()" onkeydown="if(event.key==='Enter'||event.key===' ')triggerEditMode()">
+    <img src="New_RMX_Balloon.png" alt="RE/MAX balloon">
+    <div class="remax-logo-text">
+      <span class="brand">RE/MAX</span>
+      <span class="sub">Preferred</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+  <div class="map-area">
+    <div id="map"></div>
+  </div>
+  <div class="right-panel" id="rightPanel">
+    <button class="see-all-btn" id="seeAllBtn" onclick="toggleSidebar()">See All Offices</button>
+    <div class="filler-text">
+      <span class="l1">13 Offices and Growing</span>
+      <span class="l2">All We're Missing is</span>
+      <span class="l3">YOU</span>
+    </div>
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <span>All Offices</span>
+        <button class="hide-panel-btn" onclick="toggleSidebar()">Hide X</button>
+      </div>
+      <div class="office-list" id="officeList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM -->
+<div class="bottom-section">
+  <div class="contacts-bar" id="contactsBar"></div>
+  <div class="bottom-bar" id="bottomBar"></div>
+</div>
+
+<div class="edit-actions" id="editActions">
+  <button class="save-btn" id="saveBtn" onclick="saveEdits()">Done Editing</button>
+  <button class="cancel-edit-btn" id="cancelEditBtn" onclick="cancelEditMode()">Cancel</button>
+</div>
+
+<!-- PASSWORD MODAL -->
+<div class="pw-overlay" id="pwOverlay">
+  <div class="pw-box">
+    <h3>Admin Access</h3>
+    <p>Edits save in this browser and can be exported.</p>
+    <div class="pw-error" id="pwError">Incorrect password. Try again.</div>
+    <input type="password" class="pw-input" id="pwInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkPassword()"/>
+    <button class="pw-btn" onclick="checkPassword()">Unlock</button>
+    <div class="pw-cancel-link" onclick="closePwModal()">Cancel</div>
+  </div>
+</div>
+
+<!-- OFFICE POPUP -->
+<div class="popup-overlay" id="popupOverlay" onclick="closePopup(event)">
+  <div class="popup">
+    <div class="popup-header">
+      <button class="close-btn" onclick="closePopupDirect()">X</button>
+      <h2 id="popupTitle"></h2>
+      <div class="code-badge" id="popupCode"></div>
+      <div class="popup-team" id="popupTeam"></div>
+    </div>
+    <div class="popup-body" id="popupBody"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script src="app.js"></script>
+</body>
+</html>
+
