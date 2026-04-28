@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <title>RE/MAX Preferred - Office Directory</title>
 <meta name="description" content="RE/MAX Preferred Office Directory - Greater Madison Realty LLC. Find all 13 office locations, contact info, and directions.">
 <link rel="icon" href="New_RMX_Balloon.png">
@@ -37,7 +38,7 @@
   <div class="right-panel" id="rightPanel">
     <button class="see-all-btn" id="seeAllBtn" onclick="toggleSidebar()">See All Offices</button>
     <div class="filler-text">
-      <span class="l1">13 Offices and Growing</span>
+      <span class="l1" id="officeCountText">13 Offices and Growing</span>
       <span class="l2">All We're Missing is</span>
       <span class="l3">YOU</span>
     </div>
@@ -78,12 +79,46 @@
 <div class="popup-overlay" id="popupOverlay" onclick="closePopup(event)">
   <div class="popup">
     <div class="popup-header">
-      <button class="close-btn" onclick="closePopupDirect()">X</button>
+      <button class="close-btn" onclick="closePopupDirect()">&#10005;</button>
       <h2 id="popupTitle"></h2>
-      <div class="code-badge" id="popupCode"></div>
+      <div class="popup-meta">
+        <div class="code-badge" id="popupCode"></div>
+        <div class="staff-badge" id="popupStaffBadge" style="display:none">&#128100; Staff On-Site</div>
+      </div>
       <div class="popup-team" id="popupTeam"></div>
     </div>
     <div class="popup-body" id="popupBody"></div>
+  </div>
+</div>
+
+<!-- BIZ INFO MODAL -->
+<div class="popup-overlay" id="bizInfoOverlay" onclick="closeBizInfo(event)">
+  <div class="popup biz-info-popup">
+    <div class="popup-header">
+      <button class="close-btn" onclick="closeBizInfo()">&#10005;</button>
+      <h2>Business Information</h2>
+      <div class="popup-meta">
+        <div class="code-badge">Greater Madison Realty LLC</div>
+      </div>
+    </div>
+    <div class="popup-body">
+      <div class="info-section">
+        <div class="info-section-title">&#128196; Registration &amp; Licensing</div>
+        <div class="biz-row"><span class="biz-label">FED ID #</span><span class="biz-val">45-3118617</span></div>
+        <div class="biz-row"><span class="biz-label">NAID #</span><span class="biz-val">GRTRMD8617</span></div>
+        <div class="biz-row"><span class="biz-label">FED ID # <span class="biz-note">(Baraboo, Sauk, Reedsburg)</span></span><span class="biz-val">81-0725724</span></div>
+        <div class="biz-row"><span class="biz-label">NRDS #</span><span class="biz-val">90057716</span></div>
+        <div class="biz-row"><span class="biz-label">Brokerage License #</span><span class="biz-val">937003-91</span></div>
+      </div>
+      <div class="info-section">
+        <div class="info-section-title">&#128231; Key Contacts</div>
+        <div class="biz-row"><span class="biz-label">Admin / Listing / MLS / Earnest Money</span><a href="mailto:FDesk@remaxwisconsin.com" class="biz-link">FDesk@remaxwisconsin.com</a></div>
+        <div class="biz-row"><span class="biz-label">Accounting / Billing / Closings</span><a href="mailto:accounting@remaxwisconsin.com" class="biz-link">accounting@remaxwisconsin.com</a></div>
+        <div class="biz-row"><span class="biz-label">Tech / Systems / Broker Support</span><a href="mailto:Services@remaxwisconsin.com" class="biz-link">Services@remaxwisconsin.com</a></div>
+        <div class="biz-row"><span class="biz-label">Marketing / Website / Social</span><a href="mailto:Marketing@preferredsuccess.com" class="biz-link">Marketing@preferredsuccess.com</a></div>
+        <div class="biz-row"><span class="biz-label">Showing Time</span><span class="biz-val">608-277-2777 &nbsp;/&nbsp; 1-866-877-0775</span></div>
+      </div>
+    </div>
   </div>
 </div>
 
